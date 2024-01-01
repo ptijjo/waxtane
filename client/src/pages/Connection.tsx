@@ -1,9 +1,9 @@
-import React from 'react'
+import SignIn from '../components/SignIn';
 
 const Connection = () => {
     return (
         <div>
-            connection
+            <SignIn/>
         </div>
     )
 }
