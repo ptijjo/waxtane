@@ -1,0 +1,30 @@
+
+.connection{
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .ongletConnection{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+
+        .signIn, .signUp{
+            border: 1px solid blue;
+            width: 50%;
+            text-align: center;
+        }
+
+    }
+
+   
+
+
+}

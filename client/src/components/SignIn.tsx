@@ -36,14 +36,14 @@ const SignIn = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="form_sign">
     <input type='email' placeholder='Email' {...register("email",{required:true})} />
     {errors.email && <span></span>}
 
     <input type='password' placeholder='Password'{...register("password", { required: true })} />
     {errors.password && <span>This field is required</span>}
 
-    <input type="submit" value="Connection"/>
+    <input type="submit" value="Connection" className="btn-submit"/>
   </form>
   )
 }

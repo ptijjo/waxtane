@@ -2,13 +2,13 @@ import axios from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Url } from '../assets/url/Url';
 
-type Inputs={
-email:string,
-first_name:string,
-last_name:string,
-password:string,
-genre:string,
-picture?:string
+type Inputs = {
+  email: string,
+  first_name: string,
+  last_name: string,
+  password: string,
+  genre: string,
+  picture?: string
 }
 
 const SignUp = () => {
@@ -21,18 +21,18 @@ const SignUp = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
 
-      const newUser = await axios.post(Url.enregistrement,data);
+      const newUser = await axios.post(Url.enregistrement, data);
 
       console.log(newUser);
-     
+
     } catch (error) {
       console.log(error)
     }
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type='email' placeholder='Email' {...register("email",{required:true})} />
+    <form onSubmit={handleSubmit(onSubmit)} className='form_sign'>
+      <input type='email' placeholder='Email' {...register("email", { required: true })} />
       {errors.email && <span></span>}
 
       <input type='text' placeholder='Prénom'{...register("first_name", { required: true })} />
@@ -44,15 +44,16 @@ const SignUp = () => {
       <input type='password' placeholder='Password'{...register("password", { required: true })} />
       {errors.password && <span>This field is required</span>}
 
-      <input type='radio' id='homme' value="Homme" {...register("genre", { required: true })} />
-      <label htmlFor='homme'>Homme</label>
+      <div className='btn-radio'>
+        <input type='radio' id='homme' value="Homme" {...register("genre", { required: true })} />
+        <label htmlFor='homme'>Homme</label>
 
-      <input type='radio' id='femme' value="Femme" {...register("genre", { required: true })} />
-      <label htmlFor='femme'>Femme</label>
+        <input type='radio' id='femme' value="Femme" {...register("genre", { required: true })} />
+        <label htmlFor='femme'>Femme</label>
 
-      {errors.genre && <span>This field is required</span>}
-
-      <input type="submit" value="Enregistrer"/>
+        {errors.genre && <span>This field is required</span>}
+      </div>
+      <input type="submit" value="Enregistrer" className='btn-submit' />
     </form>
   )
 }

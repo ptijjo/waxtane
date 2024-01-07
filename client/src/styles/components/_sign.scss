@@ -1,0 +1,42 @@
+.form_sign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    input{
+        text-align: center;
+        width: 80%;
+        aspect-ratio: 10/1;
+        margin-top: 15px;
+        border-radius: 10px;
+        border: none;
+        background-color: antiquewhite;
+    }
+
+    .btn-radio{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 60%;
+        margin-top: 15px;
+       
+        input{
+            margin: 0;
+            width: 10%;
+        }
+
+        label{
+            margin: 0 10px 0 0;
+        }
+    }
+
+    .btn-submit{
+        width: 60%;
+        aspect-ratio: 4/1;
+        background-color: rgb(253, 18, 253);
+    }
+}

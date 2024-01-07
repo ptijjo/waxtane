@@ -7,12 +7,12 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Connection/>} />
-                <Route path="/home" element={<Home/>} />
-                <Route path="/" element={ ""} />
-                <Route path="/" element={ ""} />
-                <Route path="/" element={ ""} />
-                <Route path="*" element={<ErrorPage/>} />
+                <Route path="/" element={<Connection />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/" element={""} />
+                <Route path="/" element={""} />
+                <Route path="/" element={""} />
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </BrowserRouter>
     )

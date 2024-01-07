@@ -5,6 +5,7 @@ import http from "http";
 import cors from "cors";
 import "dotenv/config";
 import { Route } from './routes/index';
+import path from "path";
 
 export class App{
    private app: express.Application;
@@ -37,6 +38,7 @@ export class App{
             .use(cors())
             .use(express.json())
             .use(morgan("dev"))
+            .use('/src/models/user/picture', express.static(path.join(__dirname, 'models/user/picture')))
     };
 
     //Connection et config à la Bdd mongoDb

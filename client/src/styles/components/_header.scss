@@ -1,0 +1,42 @@
+.header{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    aspect-ratio: 8/1;
+    align-items: center;
+    justify-content: space-around;
+    background-color: antiquewhite;
+
+    border: 1px solid red;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .user{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        .pictureUser{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0;
+            background-color: white;
+
+            .picture{
+                object-fit: cover;
+                object-position: center center;
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        .nomUser{
+            margin: 0;
+        }
+    }
+}

@@ -1,1 +1,10 @@
 @import "./settings";
+
+//components
+@import "./components/sign";
+@import "./components/header";
+@import "./components/footer";
+@import "./components/loader";
+
+//Pages
+@import "./pages/connection";

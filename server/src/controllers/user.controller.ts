@@ -86,7 +86,7 @@ export class userController{
 
     public connection = async (req: Request, res: Response) => {
         try {
-            const findUser:UserInterface|null = await User.findOne({ email: req.body.email });
+            const findUser: UserInterface | null = await User.findOne({ email: req.body.email });
 
             if (findUser === null) return res.status(401).json({
                 message: "Identifiants incorrects !"
@@ -109,7 +109,7 @@ export class userController{
                     userPicture: findUser.picture
                 },
                 process.env.CODE_TOKEN as string,
-                {expiresIn:process.env.EXPIRES_IN}
+                { expiresIn: process.env.EXPIRES_IN }
             );
 
             res.status(200).json({
@@ -118,9 +118,29 @@ export class userController{
                 userFirstName: findUser.first_name,
                 userEmail: findUser.email,
                 userPicture: findUser.picture,
-                token:creationToken
+                token: creationToken
             })
             
+            
+        } catch (error) {
+            res.status(400).json({
+                message: "status fail! 🤯",
+                response: error
+            })
+        }
+    };
+
+    public userConnected = async (req: any, res: Response) => {
+        try {
+            const auth = req.headers.authorization.split(' ')[1];
+            const decodedToken : any = jwt.verify(auth, process.env.CODE_TOKEN as string);
+            const userId = decodedToken.userId;
+            const userLastName = decodedToken.userLastName;
+            const  userFirstName= decodedToken.userFirstName;
+            const userEmail = decodedToken.userEmail;
+            const userPicture = decodedToken.userPicture;
+
+            res.status(200).json({ userLastName, userFirstName, userId, userPicture, userEmail });
             
         } catch (error) {
             res.status(400).json({
